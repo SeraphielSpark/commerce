@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FluxFlow | AI Automation Agency</title>
+  <style>
+    /* Prevent "flash" of content before redirect */
+    #restricted-content { display: none; }
+
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --bg: #ffffff;
+      --secondary-bg: #f8fafc;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --border: #e2e8f0;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      scroll-behavior: smooth;
+    }
+
+    .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+    /* --- Navigation --- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-weight: 800; font-size: 22px; color: var(--primary); letter-spacing: -1px; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* --- Hero Section --- */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin: 0 0 24px;
+      letter-spacing: -0.04em;
+    }
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      color: var(--text);
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 16px;
+      border: none;
+      display: inline-block;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--primary); }
+    .btn-outline:hover { background: var(--secondary-bg); }
+
+    /* --- Features --- */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 40px 0;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .feature-item h4 { margin: 10px 0; font-size: 18px; color: var(--text-dark); }
+    .feature-item p { font-size: 14px; margin: 0; color: var(--text); }
+
+    /* --- Services Grid --- */
+    .section-title { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 40px; }
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+      gap: 24px; 
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    .card:hover { border-color: var(--accent); transform: scale(1.02); }
+    .card h3 { margin: 0 0 12px; font-size: 24px; color: var(--text-dark); }
+    .card .price { font-size: 28px; font-weight: 800; color: var(--accent); margin-bottom: 20px; display: block; }
+    .card p { margin-bottom: 30px; line-height: 1.5; }
+
+    /* --- Security Banner --- */
+    .security-banner {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      margin: 60px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .security-banner div { max-width: 600px; }
+    .security-banner h3 { margin: 0 0 10px; color: var(--text-dark); }
+
+    /* --- Chat Window --- */
+    .chat-window {
+      position: fixed; right: 30px; bottom: 30px;
+      width: 400px; height: 600px;
+      background: white; border-radius: 24px;
+      display: none; flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      overflow: hidden; z-index: 9999;
+    }
+    .chat-header { 
+      padding: 24px; background: var(--primary); color: white;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .chat-body { flex: 1; padding: 20px; overflow-y: auto; background: var(--secondary-bg); }
+    
+    .message { margin-bottom: 12px; padding: 14px 18px; border-radius: 16px; font-size: 14px; line-height: 1.4; max-width: 85%; }
+    .bot { background: white; border: 1px solid var(--border); align-self: flex-start; }
+    .user { background: var(--accent); color: white; align-self: flex-end; margin-left: auto; }
+
+    .chat-footer { padding: 20px; background: white; border-top: 1px solid var(--border); }
+    .chat-input-group { display: flex; gap: 10px; }
+    .chat-input-group input { flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 12px; outline: none; }
+    
+    .upload-btn {
+      width: 100%; margin-top: 10px; padding: 10px;
+      background: #f1f5f9; border: 1px dashed #cbd5e1;
+      border-radius: 10px; cursor: pointer; color: var(--text); font-size: 12px; font-weight: 600;
+    }
+    .upload-btn.disabled { opacity: 0.5; cursor: not-allowed; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 48px; }
+      .features { grid-template-columns: 1fr; }
+      .security-banner { flex-direction: column; text-align: center; }
+      .chat-window { width: 100vw; height: 100vh; right: 0; bottom: 0; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    (function() {
+      const clientId = localStorage.getItem('fluxflow_client_id');
+      if (!clientId) {
+        // Redirect to auth page if no ID is found
+        window.location.href = "login.html";
+      } else {
+        // Show content if ID exists
+        window.onload = function() {
+          document.getElementById('restricted-content').style.display = 'block';
+        };
+      }
+    })();
+  </script>
+
+  <div id="restricted-content">
+    <div class="container">
+      <nav>
+        <div class="logo" onclick="window.location.href ='dashboard.html'" style="cursor: pointer;">FLUXFLOW</div>
+        <div class="nav-links">
+          <a href="security.html">Security Protocol</a>
+          <button class="btn btn-outline" style="padding: 8px 16px;" onclick="logout()">Logout</button>
+          <button class="btn btn-outline" style="padding: 8px 16px;" onclick="openChat('General Inquiry', 0)">Support</button>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <h1>Deploy AI. <br/>Scale Faster.</h1>
+        <p>Professional AI-driven solutions built with n8n. We automate your creative and technical workflow in record time.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+          <button class="btn btn-primary" onclick="scrollToSection('services')">View Services</button>
+          <button class="btn btn-outline" onclick="openChat('Consultation', 0)">Get Quote</button>
+        </div>
+      </header>
+
+      <div class="features">
+        <div class="feature-item">
+          <h4>High Speed</h4>
+          <p>Delivery within 24-48 hours for most standard services.</p>
+        </div>
+        <div class="feature-item">
+          <h4>AI Powered</h4>
+          <p>Leveraging cutting-edge models for superior efficiency.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Clean Code</h4>
+          <p>Responsive, modern, and lightweight architectures.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title" id="services">Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AI Landing Page</h3>
+          <span class="price">₦8,000</span>
+          <p>A sleek, high-conversion landing page optimized for speed and modern SEO standards.</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openChat('AI Website (Landing Page)', 8000)">Order Service</button>
+        </div>
+
+        <div class="card">
+          <h3>AI Logo Design</h3>
+          <span class="price">₦200</span>
+          <p>Professional visual identity branding with unlimited iterations until you're satisfied.</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openChat('AI Logo Design', 200)">Order Service</button>
+        </div>
+
+        <div class="card">
+          <h3>AI Video Promo</h3>
+          <span class="price">₦10,000</span>
+          <p>Dynamic AI-generated video content to promote your product or personal brand.</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openChat('AI Video Promo', 10000)">Order Service</button>
+        </div>
+      </div>
+
+      <div class="security-banner">
+        <div>
+          <h3>Bank-Grade Payment Security</h3>
+          <p>Every transaction is protected by forensic AI metadata scanning and a 2-minute temporal validity window.</p>
+        </div>
+        <a href="security.html" class="btn btn-outline">View Security Protocol</a>
+      </div>
+      
+      <div style="padding: 60px 0 100px; text-align: center;">
+        <p style="color: var(--text-muted);">Need something custom? <a href="#" onclick="openChat('Custom Automation', 0)" style="color: var(--accent); font-weight: 600;">Chat with us.</a></p>
+      </div>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <div>
+          <div style="font-weight: 800; font-size: 16px;">FluxFlow Assistant</div>
+          <small id="chatSubtitle" style="opacity: 0.7;">Online</small>
+        </div>
+        <button onclick="closeChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:24px;">&times;</button>
+      </div>
+
+      <div class="chat-body" id="chatBody"></div>
+
+      <div class="chat-footer">
+        <div class="chat-input-group">
+          <input type="text" id="chatInput" placeholder="How can we help?" />
+          <button class="btn btn-primary" style="padding: 10px 20px;" onclick="handleChatSend()">Send</button>
+        </div>
+        <button class="upload-btn disabled" id="uploadBtn" onclick="handleUpload()">Upload Proof of Payment</button>
+        <input type="file" id="uploadFile" style="display:none" accept="image/*,.pdf" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WEBHOOK_URL = "https://loveofn8ncloud.app.n8n.cloud/webhook/response";
+
+    const chatWindow = document.getElementById("chatWindow");
+    const chatBody = document.getElementById("chatBody");
+    const chatInput = document.getElementById("chatInput");
+    const chatSubtitle = document.getElementById("chatSubtitle");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const uploadFile = document.getElementById("uploadFile");
+
+    let uploadAllowed = false;
+    let product = null;
+    let price = null;
+    let sessionId = localStorage.getItem('fluxflow_client_id');
+
+    function logout() {
+      localStorage.removeItem('fluxflow_client_id');
+      localStorage.removeItem('fluxflow_client_name');
+      window.location.href = "login.html";
+    }
+
+    function setUploadAllowed(value) {
+      uploadAllowed = value;
+      if (value) {
+        uploadBtn.classList.remove("disabled");
+        uploadBtn.innerText = "Click to Upload Proof";
+      } else {
+        uploadBtn.classList.add("disabled");
+        uploadBtn.innerText = "Upload Proof (Locked)";
+      }
+    }
+
+    function openChat(p, pr) {
+      product = p;
+      price = pr;
+      chatBody.innerHTML = "";
+      chatSubtitle.innerText = p;
+      chatWindow.style.display = "flex";
+      setUploadAllowed(false);
+
+      if (chatBody.innerHTML === "") {
+        const clientName = localStorage.getItem('fluxflow_client_name');
+        addBotMessage(`Hi ${clientName}! I'm the FluxFlow assistant. You're interested in ${p}. How can I assist you with this order?`);
+      }
+    }
+
+    function addBotMessage(text) {
+      const msg = document.createElement("div");
+      msg.className = "message bot";
+      msg.innerText = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addUserMessage(text) {
+      const msg = document.createElement("div");
+      msg.className = "message user";
+      msg.innerText = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    async function handleChatSend() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addUserMessage(text);
+      chatInput.value = "";
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ 
+            type: "user_message", 
+            session_id: sessionId, 
+            product, 
+            price, 
+            message: text, 
+            image_url: 'm' 
+          })
+        });
+        const data = await res.json();
+        if (data.reply) addBotMessage(data.reply);
+        if (data.enableUpload) setUploadAllowed(true);
+      } catch (err) {
+        addBotMessage("Sorry, I'm having trouble connecting. Try again?");
+      }
+    }
+
+    function handleUpload() { if (uploadAllowed) uploadFile.click(); }
+
+    uploadFile.addEventListener("change", async () => {
+      if (!uploadFile.files.length) return;
+      const file = uploadFile.files[0];
+      addUserMessage(`Uploading proof: ${file.name}`);
+      setUploadAllowed(false);
+
+      const formData = new FormData();
+      formData.append("type", "file_upload");
+      formData.append("session_id", sessionId);
+      formData.append("product", product);
+      formData.append('id', localStorage.getItem('fluxflow_client_id'));  
+      formData.append("price", price);
+      formData.append("file", file);
+
+      try {
+        const res = await fetch(WEBHOOK_URL, { method: "POST", body: formData });
+        const data = await res.json();
+        const resp = `Payment Status: ${data.valid}\nAmount: ${data.detected_amount}\n${data.notes || ''}`;
+        addBotMessage(resp);
+      } catch (err) {
+        addBotMessage("Upload failed. Please try again.");
+        setUploadAllowed(true);
+      }
+    });
+
+    function closeChat() { chatWindow.style.display = "none"; }
+    function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior: "smooth"}); }
+  </script>
+</body>
+</html>

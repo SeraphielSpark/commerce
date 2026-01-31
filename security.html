@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & Integrity | FluxFlow</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --bg: #ffffff;
+      --secondary-bg: #f8fafc;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --border: #e2e8f0;
+      --success: #10b981;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 900px; margin: auto; padding: 0 24px; }
+
+    /* Header */
+    header { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--border); }
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #eff6ff;
+      color: var(--accent);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 48px; font-weight: 800; color: var(--text-dark); margin: 0; letter-spacing: -0.04em; }
+
+    /* Flow Chart Section */
+    .flow-section { padding: 80px 0; background: var(--secondary-bg); border-bottom: 1px solid var(--border); }
+    .flow-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-top: 40px;
+    }
+    .flow-step {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      width: 22%;
+      text-align: center;
+      z-index: 2;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .flow-step strong { display: block; color: var(--text-dark); margin-bottom: 8px; font-size: 15px; }
+    .flow-step p { font-size: 12px; margin: 0; color: var(--text-muted); }
+    
+    /* Connection Line */
+    .flow-container::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 0; width: 100%; height: 2px;
+      background: var(--border);
+      z-index: 1;
+    }
+
+    /* Security Details */
+    .details-grid { padding: 80px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .detail-item h3 { font-size: 20px; color: var(--text-dark); margin-top: 0; }
+    .detail-item p { font-size: 15px; }
+
+    /* Footer CTA */
+    .security-footer {
+      padding: 60px;
+      background: white;
+      color: var(--text-dark);
+      text-align: center;
+      border-radius: 24px;
+      margin-bottom: 80px;
+    }
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 12px 24px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .flow-container { flex-direction: column; gap: 20px; }
+      .flow-container::before { display: none; }
+      .flow-step { width: 100%; }
+      .details-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="security-badge">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.47 4.34-3.1 8.24-7 9.48V12H5V6.3l7-3.11v8.8z"/></svg>
+        Bank-Grade Authentication
+      </div>
+      <h1>Security & Trust</h1>
+      <p style="font-size: 18px; max-width: 600px; margin: 20px auto 0;">The FluxFlow infrastructure uses forensic AI and temporal logic to eliminate fraud and manual verification errors.</p>
+    </div>
+  </header>
+
+  <section class="flow-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 40px;">The Verification Pipeline</h2>
+      <div class="flow-container">
+        <div class="flow-step">
+          <strong>1. Lead Intake</strong>
+          <p>CRM captures ID, name, and email via encrypted bridge.</p>
+        </div>
+        <div class="flow-step">
+          <strong>2. Temporal Window</strong>
+          <p>2-minute countdown begins for transfer completion.</p>
+        </div>
+        <div class="flow-step">
+          <strong>3. Forensic Scan</strong>
+          <p>AI extracts Reference ID and analyzes file metadata.</p>
+        </div>
+        <div class="flow-step">
+          <strong>4. Fulfillment</strong>
+          <p>Logic triggers dispatch only on 100% data match.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="details-grid">
+      <div class="detail-item">
+        <h3>Forensic Metadata Analysis</h3>
+        <p>Our system doesn't just read images. It executes a deep scan of the underlying metadata. By cross-referencing Reference IDs against banking latency and digital footprints, we detect edits and recycled receipts that the human eye misses.</p>
+      </div>
+      <div class="detail-item">
+        <h3>Two-Minute Validity Window</h3>
+        <p>To prevent stale intents and ledger clutter, every payment session is time-locked. If a transfer is not detected within 120 seconds of initiation, the session invalidates, ensuring your inventory remains protected from system abuse.</p>
+      </div>
+      <div class="detail-item">
+        <h3>Global Security Gateways</h3>
+        <p>For card payments and international transactions, we integrate with Stripe and Paystack. This allows business owners to maintain a high-security profile while delegating manual verification to our autonomous AI engine.</p>
+      </div>
+      <div class="detail-item">
+        <h3>Regional Sovereignty</h3>
+        <p>Merchants maintain total control over their risk profile. You can restrict direct transfers to specific countries while enforcing secure card gateways for others, tailored to your specific regional trust requirements.</p>
+      </div>
+    </div>
+
+    <div class="security-footer">
+      <h2 style="margin: 0 0 10px;">Security Verified.</h2>
+      <p style="opacity: 0.8; margin: 0;">Your data and payments are handled by autonomous forensic logic.</p>
+      <a href="sales.html" class="btn-back">Return to Services</a>
+    </div>
+  </div>
+
+</body>
+</html>
