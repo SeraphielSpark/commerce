@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ade The Brand | Luxury handmade footwear, for the magnificent you</title>
+<meta name="description" content="Luxury handmade unisex footwear. Slides, sandals and platforms made to order. Add to cart and send your order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --o:#de6200; --o2:#c95600; --top:#a44406; --cream:#fef3e6; --ink:#0b0b0a; --soft:#6b6b6f;
+    --line:#e9e7e4; --bg:#ffffff; --tile:#f1efee; --green:#1f9d61; --bad:#c8402a; --dark:#0a110e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font:inherit;cursor:pointer}
+  svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .wrap{max-width:1640px;margin:0 auto;padding:0 clamp(16px,3vw,48px)}
+
+  /* top bar */
+  .top{background:var(--top);color:#fff;font-size:13px}
+  .top .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px}
+  .top span svg{font-size:17px;vertical-align:-3px;margin-right:6px}
+  .top span+span::before{content:"|";margin:0 12px;opacity:.6}
+  .top a{display:inline-flex;align-items:center;gap:6px;margin-left:18px}
+
+  /* header */
+  .head{display:flex;align-items:center;gap:22px;padding-top:14px;padding-bottom:14px}
+  .logo{flex:none;font-weight:800;font-size:27px;letter-spacing:-.6px;line-height:1;text-transform:uppercase;color:var(--ink)}
+  .logo b{color:var(--o);font-weight:800}
+  .logo span{display:block;margin-top:5px;font-size:12px;font-weight:500;letter-spacing:2.2px;color:var(--soft)}
+  .search{flex:1;display:flex;max-width:520px;border:1px solid #cfc7bd;border-radius:999px;overflow:hidden;background:#fff}
+  .search input{flex:1;border:0;outline:0;font:inherit;font-size:15px;padding:11px 18px;min-width:0;background:transparent;color:var(--ink)}
+  .search button{border:0;background:var(--o);color:#fff;width:54px;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .acts{margin-left:auto;display:flex;gap:22px}
+  .act{background:none;border:0;color:var(--ink);font-size:13px;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+  .act svg{font-size:25px}
+  [hidden]{display:none!important}
+  .badge{font-style:normal;position:absolute;top:-6px;right:-4px;background:var(--o);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+
+  /* category bar */
+  .cats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cats .wrap{display:flex;align-items:center;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+  .cats .wrap::-webkit-scrollbar{display:none}
+  .allcat{background:var(--o);color:#fff;border:0;border-radius:8px;padding:9px 18px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;white-space:nowrap;margin-right:14px}
+  .cats a{font-weight:600;font-size:14px;padding:8px 14px;border-radius:8px;white-space:nowrap}
+  .cats a:hover,.cats a.on{color:var(--o)}
+  .cats .sp{flex:1}
+  .deliver{display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px;white-space:nowrap}
+  .deliver svg{color:var(--o);font-size:20px}
+
+  /* shared */
+  .view{display:none;padding-bottom:60px}
+  .view.on{display:block}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;font-weight:700;padding:13px 24px;border-radius:999px}
+  .btn.o{background:var(--o);color:#fff}
+  .btn.o:hover{background:var(--o2)}
+  .btn.shop{font-size:18px;padding:13px 28px;box-shadow:0 6px 14px rgba(222,98,0,.35)}
+  .btn.shop svg{font-size:22px}
+  .btn.wa{background:var(--green);color:#fff}
+  .btn.line{background:#fff;border:1px solid #cfc7bd;color:var(--ink)}
+  h2.sec{font-size:25px;font-weight:800;letter-spacing:-.3px;padding-left:14px;border-left:4px solid var(--o);line-height:1.1;margin:44px 0 6px}
+  .sechead{display:flex;justify-content:space-between;align-items:flex-end}
+  .sechead a{color:var(--o);font-size:14px;font-weight:500;margin-bottom:8px}
+  .sub{color:var(--soft);font-size:15px;margin:0 0 18px 18px}
+
+  /* hero */
+  .hero{position:relative;margin-top:22px;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1.25fr .75fr;background:linear-gradient(100deg,#fef3e6 0%,#fde6d2 45%,#fbd3b0 100%)}
+  .hero::before{content:"";position:absolute;inset:0 auto 0 0;width:240px;opacity:.5;pointer-events:none;background:radial-gradient(circle at 0 50%,#f9d9b8 0,transparent 70%)}
+  .hero .txt{position:relative;padding:40px 20px 34px clamp(28px,4vw,64px)}
+  .pill{display:inline-block;background:#ee8236;color:#fff;font-weight:700;font-size:15px;letter-spacing:.4px;padding:3px 12px;border-radius:8px;text-transform:uppercase}
+  .hero h1{font-size:clamp(28px,3.7vw,42px);font-weight:800;line-height:1.12;margin-top:12px;letter-spacing:-.8px}
+  .hero h1 em{white-space:nowrap}
+  .hero h1 em{font-style:normal;color:#cf5a07}
+  .hero p{margin-top:12px;font-size:17px;max-width:38ch}
+  .perks{display:flex;flex-wrap:wrap;gap:14px 22px;margin:20px 0 24px}
+  .perk{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;line-height:1.2}
+  .perk svg{font-size:26px;color:var(--o)}
+  .hero .pic{position:relative;min-height:300px}
+  .hero .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%);mask-image:linear-gradient(90deg,transparent 0,#000 28%)}
+
+  /* tiles */
+  .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:22px}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 12px 14px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .tile:hover,.tile.on{background:#fef6e2;border-color:#f6e3c4}
+  .tile img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px}
+  .tile b{display:block;margin-top:10px;font-size:16px;font-weight:700}
+  .tile b span{color:var(--o);margin-left:4px}
+
+  /* how to */
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+  .hw{display:flex;gap:16px;align-items:center;position:relative;padding-right:26px}
+  .hw:not(:last-child)::after{content:"›";position:absolute;right:4px;top:50%;transform:translateY(-55%);font-size:26px;color:var(--ink)}
+  .hw .ic{position:relative;width:84px;height:64px;border-radius:12px;background:#fef7ea;display:flex;align-items:center;justify-content:center;color:var(--o);font-size:32px;flex:none}
+  .hw .ic i{position:absolute;top:-9px;left:-9px;width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font:700 13px/26px sans-serif;text-align:center;font-style:normal}
+  .hw b{display:block;font-size:16px}
+  .hw span{color:var(--soft);font-size:14px}
+
+  /* designs */
+  .pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .pills button{background:#fff;border:1px solid #cfc7bd;border-radius:999px;padding:8px 18px;font-size:14px;font-weight:600;color:var(--ink)}
+  .pills button.on{background:var(--o);border-color:var(--o);color:#fff}
+  .pills .clear{border:0;color:var(--o);padding:8px 4px;text-decoration:underline}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(min-width:1400px){.grid{grid-template-columns:repeat(5,1fr)}.hero .txt{padding-top:56px;padding-bottom:50px}.hero h1{font-size:52px}.hero p{font-size:19px}}
+  .card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .ph{position:relative;aspect-ratio:1/1;background:var(--tile)}
+  .ph img{width:100%;height:100%;object-fit:cover}
+  .heart{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--ink);font-size:20px;display:flex;align-items:center;justify-content:center}
+  .heart.on{color:var(--o)} .heart.on svg{fill:var(--o)}
+  .cb{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .cb .tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+  .cb .nm{font-weight:600;font-size:15px;line-height:1.25}
+  .cb .pr{font-weight:800;font-size:18px}
+  .cb .ds{font-size:13px;color:var(--soft);margin-bottom:8px}
+  .cb .btn{margin-top:auto;border-radius:999px;padding:9px;font-size:14px}
+  .empty{grid-column:1/-1;padding:40px 0;text-align:center;color:var(--soft)}
+  .ship{margin-top:26px;background:var(--cream);border-radius:12px;padding:14px 18px;font-size:14px;display:flex;gap:10px;align-items:center}
+  .ship svg{font-size:24px;color:var(--o)}
+
+  /* about / contact */
+  .split{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding-top:40px}
+  .split img{border-radius:14px}
+  .page h1{font-size:clamp(30px,4.6vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-top:12px}
+  .page p{color:var(--soft);margin-top:14px;max-width:58ch;font-size:16px}
+  .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .val{background:var(--cream);border-radius:12px;padding:20px}
+  .val h3{font-size:18px;color:var(--o2);margin-bottom:6px}
+  .val p{font-size:14px;margin:0}
+  .info{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--tile)}
+  .info h2{font-size:22px}
+  .info dl{display:grid;gap:16px;margin-top:14px}
+  .info dt{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--o2)}
+  .info dd{font-size:15px}
+  .info dd a{border-bottom:1px solid #cfc7bd}
+
+  /* forms */
+  label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:12px 0 5px}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #cfc7bd;border-radius:10px;padding:11px 12px}
+  textarea{min-height:80px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--o);outline-offset:1px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .err{color:var(--bad);font-size:13px;min-height:18px;margin-top:8px}
+
+  /* overlays */
+  .shade{position:fixed;inset:0;z-index:60;background:rgba(15,10,5,.6);display:none}
+  .shade.on{display:flex}
+  .shade.mid{align-items:flex-end;justify-content:center}
+  .shade.side{justify-content:flex-end}
+  .box{background:#fff;width:100%;max-width:500px;max-height:94vh;overflow:auto;border-radius:16px 16px 0 0;padding:20px}
+  .drawer{background:#fff;width:100%;max-width:430px;height:100%;display:flex;flex-direction:column}
+  .dh{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .dh b{font-size:18px}
+  .x{background:#fff;border:1px solid #cfc7bd;width:36px;height:36px;border-radius:50%;font-size:18px;color:var(--ink);flex:none}
+  .dbody{flex:1;overflow:auto;padding:8px 20px}
+  .dfoot{padding:16px 20px;border-top:1px solid var(--line)}
+  .dfoot .btn{width:100%;border-radius:10px;margin-top:10px}
+  .tot{display:flex;justify-content:space-between;align-items:baseline}
+  .tot b{font-size:20px}
+  .fine{font-size:12px;color:var(--soft);margin-top:8px;text-align:center}
+  .li{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .li img{width:68px;height:68px;border-radius:8px;object-fit:cover;flex:none}
+  .li .m{flex:1;min-width:0}
+  .li .m b{display:block;font-size:15px}
+  .li .m span{display:block;font-size:13px;color:var(--soft)}
+  .qty{display:inline-flex;align-items:center;border:1px solid #cfc7bd;border-radius:8px;margin-top:6px}
+  .qty button{background:none;border:0;width:30px;height:30px;font-size:17px;color:var(--ink)}
+  .qty i{font-style:normal;min-width:24px;text-align:center;font-weight:700;font-size:14px}
+  .li .r{text-align:right;font-weight:700;font-size:15px;white-space:nowrap}
+  .li .r button{display:block;margin:8px 0 0 auto;background:none;border:0;color:var(--bad);font-size:12px;text-decoration:underline}
+  .mh{display:flex;gap:14px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .mh img{width:72px;height:72px;border-radius:10px;object-fit:cover}
+  .mh b{display:block;font-size:17px}
+  .mh .x{margin-left:auto}
+  .box .btn{width:100%;border-radius:10px;margin-top:14px}
+  .sum{background:var(--tile);border-radius:10px;padding:12px 14px;font-size:14px;margin-bottom:6px}
+  .sum div{display:flex;justify-content:space-between;gap:10px;padding:2px 0}
+  .float{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-weight:700;font-size:15px;padding:12px 20px 12px 14px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+  .float:hover{background:#1ebe5a}
+  .float img{width:28px;height:28px}
+  .float svg{font-size:26px;stroke-width:2}
+  @media(max-width:600px){.float{right:14px;bottom:14px;padding:12px}.float span{display:none}}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:80;background:var(--ink);color:#fff;padding:11px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+  .toast.on{opacity:1}
+  @media(min-width:620px){.shade.mid{align-items:center}.box{border-radius:16px}}
+
+  footer{border-top:1px solid var(--line);margin-top:20px}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;padding-bottom:84px;font-size:13px;color:var(--soft)}
+
+  @media(max-width:900px){
+    .hero .txt{padding-left:22px}.hero::before{display:none}.hw:not(:last-child)::after{display:none}.deliver{display:none}
+    .hero .pic img{-webkit-mask-image:none;mask-image:none}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .tiles{grid-template-columns:repeat(3,1fr)}
+    .hero{grid-template-columns:1fr}
+    .hero .txt{padding:30px 22px}
+    .hero .pic{min-height:230px;order:-1}
+    .how,.vals{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .head{flex-wrap:wrap;gap:12px}
+    .search{order:3;flex-basis:100%;max-width:none}
+    .top span:nth-child(n+2){display:none}
+    .act span{display:none}
+    .cb .ds{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <div><span><svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l4 3v3h-8"/><circle cx="6.500" cy="18" r="1.800"/><circle cx="17" cy="18" r="1.800"/></svg>Made in Nigeria</span><span>Handcrafted quality</span><span>Delivery in 7 to 10 days</span></div>
+  <div><a id="topTel" href="#"></a><a href="#contact">Help</a></div>
+</div></div>
+
+<div class="wrap head">
+  <a class="logo" href="#shop">Ade <b>The Brand</b><span>for the magnificent you</span></a>
+  <form class="search" id="searchForm" role="search">
+    <input id="q" type="search" placeholder="Search for slides, sandals, platforms..." aria-label="Search designs">
+    <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+  </form>
+  <div class="acts">
+    <button class="act" id="wishBtn" type="button"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg><span>Wishlist</span><i class="badge" id="wishN" hidden>0</i></button>
+    <button class="act" id="cartBtn" type="button"><svg viewBox="0 0 24 24"><path d="M3 4h2.500l2.200 11h10.300l2-8H7"/><circle cx="9.500" cy="19" r="1.400"/><circle cx="17" cy="19" r="1.400"/></svg><span>Cart</span><i class="badge" id="cartN">0</i></button>
+  </div>
+</div>
+
+<div class="cats"><div class="wrap" id="catbar">
+  <button class="allcat" type="button" data-all><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>All Categories</button>
+  <a href="#shop" data-aud="Men">Men</a>
+  <a href="#shop" data-aud="Women">Women</a>
+  <a href="#shop" data-aud="Kids">Kids</a>
+  <a href="#shop" data-type="Slides">Slides</a>
+  <a href="#shop" data-type="Sandals">Sandals</a>
+  <a href="#shop" data-type="Platforms">Platforms</a>
+  <a href="#about" data-v="about">About</a>
+  <a href="#contact" data-v="contact">Contact</a>
+  <span class="sp"></span>
+  <span class="deliver"><svg viewBox="0 0 24 24"><path d="M12 21s-6.500-6-6.500-11a6.500 6.500 0 0 1 13 0c0 5-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.200"/></svg>Deliver to: Nigeria</span>
+</div></div>
+
+<main class="wrap">
+
+  <!-- ============ SHOP ============ -->
+  <section class="view" id="v-shop">
+    <div class="hero">
+      <div class="txt">
+        <span class="pill">Luxury handmade footwear</span>
+        <h1>Handmade Footwear<br>for the <em>Magnificent You.</em></h1>
+        <p>Slides, sandals and platforms for women, men and children. Every pair is made by hand, to order, in your size.</p>
+        <div class="perks">
+          <div class="perk"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9.500 9l1.800 1.800L14.800 7.500M8.500 14l-1.500 7 5-2.500 5 2.500-1.500-7"/></svg>Handcrafted<br>quality</div>
+          <div class="perk"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 5h14l-2.500 4L19 13H5"/></svg>Made in<br>Nigeria</div>
+          <div class="perk"><svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l4 3v3h-8"/><circle cx="6.500" cy="18" r="1.800"/><circle cx="17" cy="18" r="1.800"/></svg>Delivery in<br>7 to 10 days</div>
+          <div class="perk"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.400 8-8 9-4.600-1-8-4.500-8-9V6z"/><path d="M9 12l2.200 2.200L15.500 10"/></svg>Order on<br>WhatsApp</div>
+        </div>
+        <a class="btn o shop" href="#designs"><svg viewBox="0 0 24 24"><path d="M3 4h2.500l2.200 11h10.300l2-8H7"/><circle cx="9.500" cy="19" r="1.400"/><circle cx="17" cy="19" r="1.400"/></svg>Shop Now &rarr;</a>
+      </div>
+      <div class="pic"><img src="photos/mod-balance.jpg" alt="Ade The Brand handmade slides"></div>
+    </div>
+
+    <div class="tiles" id="tiles"></div>
+
+    <h2 class="sec">How to Order</h2>
+    <div class="how">
+      <div class="hw"><div class="ic"><i>1</i><svg viewBox="0 0 24 24"><path d="M3 4h2.500l2.200 11h10.300l2-8H7"/><circle cx="9.500" cy="19" r="1.400"/><circle cx="17" cy="19" r="1.400"/></svg></div><div><b>Pick a design</b><span>Browse the designs and add your pair to the cart.</span></div></div>
+      <div class="hw"><div class="ic"><i>2</i><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 10h8M8 14h5"/></svg></div><div><b>Fill in your size and details</b><span>Choose your size and colour, then enter your delivery address.</span></div></div>
+      <div class="hw"><div class="ic"><i>3</i><svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l4 3v3h-8"/><circle cx="6.500" cy="18" r="1.800"/><circle cx="17" cy="18" r="1.800"/></svg></div><div><b>Receive your order</b><span>Your order goes to our WhatsApp. We make your pair and deliver it.</span></div></div>
+    </div>
+
+    <div id="designs">
+      <div class="sechead"><h2 class="sec">The Designs</h2><a href="#designs" id="seeAll">See All Products &rarr;</a></div>
+      <p class="sub">Made to order. Want a different colour? Say so in your order.</p>
+      <div class="pills" id="pills"></div>
+      <div class="grid" id="grid"></div>
+      <div class="ship"><svg viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l4 3v3h-8"/><circle cx="6.500" cy="18" r="1.800"/><circle cx="17" cy="18" r="1.800"/></svg><span><b>Delivery takes about 7 to 10 days.</b> Each pair is made after you order, then packaged and sent to you.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="view page" id="v-about">
+    <div class="split">
+      <div>
+        <span class="pill">About us</span>
+        <h1>Made by hand. Made for you.</h1>
+        <p>Ade The Brand makes luxury handmade footwear for women, men and children. Nothing here comes off a factory line. Each pair is cut, stitched and finished by hand, one order at a time.</p>
+        <p>Because every pair is made to order, you get your own size and the finish you asked for. From everyday slides to statement platforms, the aim is the same: footwear that is comfortable, well made and worth being seen in.</p>
+        <p>That is what "for the magnificent you" means.</p>
+        <a class="btn o" href="#shop" style="margin-top:22px">See the designs &rarr;</a>
+      </div>
+      <img src="photos/packaging.jpg" alt="Ade The Brand orders packaged for delivery">
+    </div>
+    <div class="vals">
+      <div class="val"><h3>Handmade</h3><p>Every pair is made by hand, with attention to the stitching, the sole and the finish.</p></div>
+      <div class="val"><h3>Made to order</h3><p>Your pair is made after you order, in your size. Colours can be changed on request.</p></div>
+      <div class="val"><h3>Packaged and delivered</h3><p>Orders are packaged in Ade The Brand bags and delivered in about 7 to 10 days.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="view page" id="v-contact">
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="pill">Contact</span>
+        <h1>Talk to us.</h1>
+        <p>Questions about a design, a custom pair or an order? Send a message and it comes straight to our WhatsApp.</p>
+        <form id="contactForm" novalidate style="margin-top:14px">
+          <label for="cName">Your name</label><input id="cName" autocomplete="name">
+          <label for="cMsg">Your message</label><textarea id="cMsg" placeholder="What would you like to know?"></textarea>
+          <div class="err" id="cErr"></div>
+          <button class="btn wa" type="submit">Send on WhatsApp</button>
+        </form>
+      </div>
+      <div class="info">
+        <h2>Reach us</h2>
+        <dl>
+          <div><dt>WhatsApp and calls</dt><dd><a id="telLink" href="#"></a></dd></div>
+          <div><dt>Email</dt><dd><a id="mailLink" href="#"></a></dd></div>
+          <div><dt>Ibadan</dt><dd>Jeje, Apete, Ibadan, Nigeria</dd></div>
+          <div><dt>Lagos</dt><dd>10, Olusesan Adetula Street, Kilo Bus Stop, Surulere, Lagos</dd></div>
+          <div><dt>Social</dt><dd>@adethebrand on Instagram, TikTok, Facebook and Snapchat</dd></div>
+          <div><dt>Delivery</dt><dd>About 7 to 10 days after your order</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>Ade The Brand · Luxury handmade unisex footwear · for the magnificent you</span>
+  <span>Website by AFRISTACK SMART SYSTEM LTD</span>
+</div></footer>
+
+<!-- add to cart -->
+<div class="shade mid" id="addShade" role="dialog" aria-modal="true">
+  <form class="box" id="addForm" novalidate>
+    <div class="mh"><img id="aImg" src="" alt=""><div><b id="aName"></b><span id="aPrice"></span></div><button class="x" type="button" data-close aria-label="Close">×</button></div>
+    <div class="two">
+      <div><label for="aSize">Size</label><select id="aSize"></select></div>
+      <div><label for="aQty">Quantity</label><input id="aQty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
+    </div>
+    <label for="aColour">Colour (leave blank for as shown)</label><input id="aColour" placeholder="As shown">
+    <div class="err" id="aErr"></div>
+    <button class="btn o" type="submit">Add to Cart</button>
+  </form>
+</div>
+
+<!-- cart drawer -->
+<div class="shade side" id="cartShade" role="dialog" aria-modal="true">
+  <div class="drawer">
+    <div class="dh"><b>Your Cart</b><button class="x" type="button" data-close aria-label="Close">×</button></div>
+    <div class="dbody" id="cartBody"></div>
+    <div class="dfoot">
+      <div class="tot"><span>Total (delivery not included)</span><b id="cartTotal">₦0</b></div>
+      <button class="btn wa" type="button" id="checkoutBtn">Checkout on WhatsApp</button>
+      <p class="fine">Delivery fee is confirmed on WhatsApp.</p>
+    </div>
+  </div>
+</div>
+
+<!-- checkout -->
+<div class="shade mid" id="outShade" role="dialog" aria-modal="true">
+  <form class="box" id="outForm" novalidate>
+    <div class="mh"><div><b>Delivery details</b><span>Fill this in and your order opens in WhatsApp.</span></div><button class="x" type="button" data-close aria-label="Close">×</button></div>
+    <div class="sum" id="outSum" style="margin-top:14px"></div>
+    <label for="oName">Full name</label><input id="oName" autocomplete="name">
+    <label for="oPhone">Phone number</label><input id="oPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="080...">
+    <label for="oAddr">Delivery address</label><textarea id="oAddr" autocomplete="street-address" placeholder="House number, street, area"></textarea>
+    <div class="two">
+      <div><label for="oCity">City</label><input id="oCity" autocomplete="address-level2"></div>
+      <div><label for="oState">State</label><input id="oState" autocomplete="address-level1"></div>
+    </div>
+    <label for="oNote">Message (optional)</label><textarea id="oNote" placeholder="Anything we should know about your order"></textarea>
+    <div class="err" id="oErr"></div>
+    <button class="btn wa" type="submit">Send order on WhatsApp</button>
+    <p class="fine">WhatsApp will open with your order written out. Press send there to complete it.</p>
+  </form>
+</div>
+
+<a class="float" id="floatLink" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <img src="photos/whatsapp.svg" alt="" onerror="this.outerHTML='<svg viewBox=&quot;0 0 24 24&quot;><path d=&quot;M20 11.500a8 8 0 0 1-11.800 7L4 20l1.500-4.200A8 8 0 1 1 20 11.500z&quot;/></svg>'">
+  <span>Chat on WhatsApp</span>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   EDIT HERE ONLY
+   WHATSAPP: number orders go to (country code, no + sign)
+   PRODUCTS: one line per design. price is a plain number.
+     aud  = who it is for (Men / Women / Kids). Unisex = both.
+     type = Slides / Sandals / Platforms
+     sizes = the sizes she makes that design in
+   ============================================================ */
+const WHATSAPP = "2348112218911";
+const EMAIL    = "Adethebrand379@gmail.com";
+const BRAND    = "Ade The Brand";
+
+const WOMEN  = [36,37,38,39,40,41,42];
+const UNISEX = [37,38,39,40,41,42,43,44,45,46];
+const KIDS   = ["Kids 20","Kids 21","Kids 22","Kids 23","Kids 24","Kids 25","Kids 26","Kids 27","Kids 28","Kids 29","Kids 30"];
+
+const PRODUCTS = [
+  { name:"The Noir Éclat",              aud:["Women"],       type:"Sandals",   price:25000, sizes:WOMEN,  photo:"noir-eclat.jpg",
+    desc:"A stunning pair that screams soft luxury with quiet drama, where elegance meets texture." },
+  { name:"Platforms",                   aud:["Women"],       type:"Platforms", price:20000, sizes:WOMEN,  photo:"platforms.jpg",
+    desc:"Double-buckle platforms with a tall, solid sole." },
+  { name:"The Urban Shade slide",       aud:["Men","Women"], type:"Slides",    price:12000, sizes:UNISEX, photo:"urban-shade.jpg",
+    desc:"Calm never goes out of style. A dark camo slide for those who move in silence." },
+  { name:"The Mod Balance slide",       aud:["Men","Women"], type:"Slides",    price:11500, sizes:UNISEX, photo:"mod-balance.jpg",
+    desc:"A pair that doesn't shout, but is noticed and understands timelessness." },
+  { name:"The Élégbè / Bate Bow slide", aud:["Women"],       type:"Slides",    price:11500, sizes:WOMEN,  photo:"bate-bow.jpg",
+    desc:"A pair that walks with you gently but powerfully, finished with a bow." },
+  { name:"Female slides",               aud:["Women"],       type:"Slides",    price:10000, sizes:WOMEN,  photo:"female-slides.jpg",
+    desc:"A clean, glossy slide for everyday wear." },
+  { name:"The Mini Moka",               aud:["Kids"],        type:"Sandals",   price:5000,  sizes:KIDS,   photo:"mini-moka.jpg",
+    desc:"Simplicity and structure in perfect harmony, for the littlest steps." }
+];
+/* ================== nothing to edit below ================== */
+
+const $ = id => document.getElementById(id);
+const naira = n => "₦" + Number(n).toLocaleString("en-NG");
+const wa = t => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t);
+const label = p => p.aud.length > 1 ? "Unisex" : p.aud[0];
+const ICON = {
+  cart:'<svg viewBox="0 0 24 24"><path d="M3 4h2.500l2.200 11h10.300l2-8H7"/><circle cx="9.500" cy="19" r="1.400"/><circle cx="17" cy="19" r="1.400"/></svg>',
+  heart:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>'
+};
+const load = (k,d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch(e){ return d; } };
+const save = (k,v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
+let toastT; const toast = m => { const t=$("toast"); t.textContent=m; t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),1800); };
+
+/* ---------- pages ---------- */
+function show(){
+  let v = (location.hash || "#shop").slice(1);
+  const toDesigns = v === "designs";
+  if (toDesigns) v = "shop";
+  if (!["shop","about","contact"].includes(v)) v = "shop";
+  document.querySelectorAll(".view").forEach(s => s.classList.toggle("on", s.id === "v-" + v));
+  document.querySelectorAll("#catbar a[data-v]").forEach(a => a.classList.toggle("on", a.dataset.v === v));
+  if (toDesigns) $("designs").scrollIntoView(); else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", show);
+
+/* ---------- filtering ---------- */
+const F = { aud:"All", type:null, q:"", wish:false };
+let wish = load("atb_wish", []);
+function matches(p){
+  if (F.wish && !wish.includes(p.name)) return false;
+  if (F.aud === "Unisex" && p.aud.length < 2) return false;
+  if (!["All","Unisex"].includes(F.aud) && !p.aud.includes(F.aud)) return false;
+  if (F.type && p.type !== F.type) return false;
+  if (F.q){ const s=(p.name+" "+p.type+" "+p.aud.join(" ")+" "+p.desc).toLowerCase(); if (!F.q.toLowerCase().split(/\s+/).every(w=>s.includes(w))) return false; }
+  return true;
+}
+function setFilter(patch, scroll){
+  Object.assign(F, patch); renderPills(); render();
+  if (scroll){ if (location.hash !== "#shop" && location.hash !== "") location.hash = "#shop"; setTimeout(()=>$("designs").scrollIntoView(), 30); }
+}
+function renderPills(){
+  const el = $("pills"); el.innerHTML = "";
+  ["All","Women","Men","Unisex","Kids"].forEach(a => {
+    const b = document.createElement("button"); b.type="button"; b.textContent=a; if (F.aud===a) b.className="on";
+    b.onclick = () => setFilter({aud:a}); el.appendChild(b);
+  });
+  const extra = [F.type, F.q && ('"'+F.q+'"'), F.wish && "Wishlist"].filter(Boolean);
+  if (extra.length){
+    const b = document.createElement("button"); b.type="button"; b.className="clear";
+    b.textContent = "Showing " + extra.join(", ") + " · clear";
+    b.onclick = () => { $("q").value=""; setFilter({type:null,q:"",wish:false}); }; el.appendChild(b);
+  }
+  document.querySelectorAll(".tile").forEach(t => t.classList.toggle("on", t.dataset.k==="aud" ? F.aud===t.dataset.n && !F.type : F.type===t.dataset.n));
+  document.querySelectorAll("#catbar a[data-aud]").forEach(a => a.classList.toggle("on", F.aud===a.dataset.aud));
+  document.querySelectorAll("#catbar a[data-type]").forEach(a => a.classList.toggle("on", F.type===a.dataset.type));
+}
+function render(){
+  const g = $("grid"); g.innerHTML = "";
+  const list = PRODUCTS.map((p,i)=>[p,i]).filter(([p])=>matches(p));
+  if (!list.length){ g.innerHTML = '<div class="empty">No design matches that yet. Clear the filter to see everything.</div>'; return; }
+  list.forEach(([p,i]) => {
+    const c = document.createElement("article"); c.className = "card";
+    c.innerHTML = '<div class="ph"><img loading="lazy" src="photos/'+p.photo+'" alt="'+p.name+'">' +
+      '<button class="heart'+(wish.includes(p.name)?' on':'')+'" type="button" aria-label="Add to wishlist">'+ICON.heart+'</button></div>' +
+      '<div class="cb"><div class="tag">'+label(p)+' · '+p.type+'</div><div class="nm">'+p.name+'</div><div class="pr">'+naira(p.price)+'</div>' +
+      '<div class="ds">'+p.desc+'</div><button class="btn o" type="button">'+ICON.cart+' Add to Cart</button></div>';
+    c.querySelector(".heart").onclick = e => {
+      wish = wish.includes(p.name) ? wish.filter(n=>n!==p.name) : wish.concat(p.name);
+      save("atb_wish", wish); updateBadges(); e.currentTarget.classList.toggle("on");
+      if (F.wish) render();
+    };
+    c.querySelector(".btn").onclick = () => openAdd(i);
+    g.appendChild(c);
+  });
+}
+
+/* tiles */
+[["Men","aud","urban-shade.jpg"],["Women","aud","noir-eclat.jpg"],["Kids","aud","mini-moka.jpg"],
+ ["Slides","type","mod-balance.jpg"],["Sandals","type","bate-bow.jpg"],["Platforms","type","platforms.jpg"]].forEach(([n,k,img]) => {
+  const a = document.createElement("a"); a.className="tile"; a.href="#shop";
+  a.innerHTML = '<img loading="lazy" src="photos/'+img+'" alt=""><b>'+n+'<span>&rarr;</span></b>';
+  a.dataset.k = k; a.dataset.n = n;
+  a.onclick = e => { e.preventDefault(); setFilter(k==="aud" ? {aud:n,type:null,q:"",wish:false} : {aud:"All",type:n,q:"",wish:false}, true); };
+  $("tiles").appendChild(a);
+});
+document.querySelectorAll("#catbar a[data-aud]").forEach(a => a.onclick = e => { e.preventDefault(); setFilter({aud:a.dataset.aud,type:null,q:"",wish:false}, true); });
+document.querySelectorAll("#catbar a[data-type]").forEach(a => a.onclick = e => { e.preventDefault(); setFilter({aud:"All",type:a.dataset.type,q:"",wish:false}, true); });
+$("seeAll").onclick = e => { e.preventDefault(); $("q").value=""; setFilter({aud:"All",type:null,q:"",wish:false}); };
+document.querySelector("[data-all]").onclick = () => { $("q").value=""; setFilter({aud:"All",type:null,q:"",wish:false}, true); };
+$("searchForm").onsubmit = e => { e.preventDefault(); setFilter({q:$("q").value.trim(),wish:false}, true); };
+$("wishBtn").onclick = () => { if (!wish.length){ toast("Your wishlist is empty. Tap the heart on a design."); return; } setFilter({wish:true,aud:"All",type:null,q:""}, true); };
+
+/* ---------- cart ---------- */
+let cart = load("atb_cart", []).filter(x => PRODUCTS[x.i]);
+const cartTotal = () => cart.reduce((s,x)=>s+PRODUCTS[x.i].price*x.qty,0);
+function updateBadges(){
+  $("cartN").textContent = cart.reduce((s,x)=>s+x.qty,0);
+  $("wishN").textContent = wish.length; $("wishN").hidden = !wish.length;
+}
+function showLayer(id){ $(id).classList.add("on"); document.body.style.overflow="hidden"; }
+function closeAll(){ document.querySelectorAll(".shade").forEach(s=>s.classList.remove("on")); document.body.style.overflow=""; }
+document.querySelectorAll("[data-close]").forEach(b => b.onclick = closeAll);
+document.querySelectorAll(".shade").forEach(s => s.addEventListener("click", e => { if (e.target===s) closeAll(); }));
+document.addEventListener("keydown", e => { if (e.key==="Escape") closeAll(); });
+
+let adding = null;
+function openAdd(i){
+  adding = i; const p = PRODUCTS[i];
+  $("aImg").src="photos/"+p.photo; $("aImg").alt=p.name; $("aName").textContent=p.name; $("aPrice").textContent=naira(p.price)+" per pair";
+  $("aSize").innerHTML = '<option value="">Choose size</option>'+p.sizes.map(s=>'<option>'+s+'</option>').join("")+'<option>Not sure, please advise</option>';
+  $("aQty").value=1; $("aColour").value=""; $("aErr").textContent=""; showLayer("addShade");
+}
+$("addForm").onsubmit = e => {
+  e.preventDefault();
+  const size=$("aSize").value; if (!size){ $("aErr").textContent="Please choose your size."; $("aSize").focus(); return; }
+  const qty=Math.min(20,Math.max(1,parseInt($("aQty").value,10)||1)), colour=$("aColour").value.trim()||"As shown";
+  const same=cart.find(x=>x.i===adding&&x.size===size&&x.colour===colour);
+  if (same) same.qty+=qty; else cart.push({i:adding,size,colour,qty});
+  save("atb_cart",cart); updateBadges(); closeAll(); renderCart(); showLayer("cartShade");
+};
+function renderCart(){
+  const b=$("cartBody"); b.innerHTML="";
+  if (!cart.length) b.innerHTML='<div class="empty">Your cart is empty.</div>';
+  cart.forEach((x,k) => {
+    const p=PRODUCTS[x.i], d=document.createElement("div"); d.className="li";
+    d.innerHTML='<img src="photos/'+p.photo+'" alt=""><div class="m"><b>'+p.name+'</b><span>Size '+x.size+' · '+x.colour+'</span>'+
+      '<div class="qty"><button type="button" aria-label="Less">−</button><i>'+x.qty+'</i><button type="button" aria-label="More">+</button></div></div>'+
+      '<div class="r">'+naira(p.price*x.qty)+'<button type="button">Remove</button></div>';
+    const [less,more]=d.querySelectorAll(".qty button");
+    less.onclick=()=>{ x.qty--; if(x.qty<1) cart.splice(k,1); done(); };
+    more.onclick=()=>{ if(x.qty<20) x.qty++; done(); };
+    d.querySelector(".r button").onclick=()=>{ cart.splice(k,1); done(); };
+    b.appendChild(d);
+  });
+  $("cartTotal").textContent=naira(cartTotal()); $("checkoutBtn").disabled=!cart.length; $("checkoutBtn").style.opacity=cart.length?1:.5;
+  function done(){ save("atb_cart",cart); updateBadges(); renderCart(); }
+}
+$("cartBtn").onclick = () => { renderCart(); showLayer("cartShade"); };
+$("checkoutBtn").onclick = () => {
+  if (!cart.length) return;
+  $("outSum").innerHTML = cart.map(x=>'<div><span>'+x.qty+' × '+PRODUCTS[x.i].name+' (size '+x.size+')</span><b>'+naira(PRODUCTS[x.i].price*x.qty)+'</b></div>').join("") +
+    '<div style="border-top:1px solid var(--line);margin-top:6px;padding-top:6px"><span>Total</span><b>'+naira(cartTotal())+'</b></div>';
+  $("oErr").textContent=""; closeAll(); showLayer("outShade");
+};
+$("outForm").onsubmit = e => {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  for (const [id,l] of [["oName","your full name"],["oPhone","your phone number"],["oAddr","your delivery address"],["oCity","your city"],["oState","your state"]]){
+    if (!v(id)){ $("oErr").textContent="Please fill in "+l+"."; $(id).focus(); return; }
+  }
+  const L = ["*NEW ORDER - "+BRAND+"*",""];
+  cart.forEach((x,k) => { const p=PRODUCTS[x.i];
+    L.push("*"+(k+1)+". "+p.name+"*","   Size: "+x.size,"   Colour: "+x.colour,"   Quantity: "+x.qty,"   Price: "+naira(p.price)+" per pair","   Subtotal: "+naira(p.price*x.qty),""); });
+  L.push("*TOTAL:* "+naira(cartTotal())+" (delivery not included)","",
+         "*Name:* "+v("oName"),"*Phone:* "+v("oPhone"),"*Address:* "+v("oAddr"),"*City / State:* "+v("oCity")+", "+v("oState"));
+  if (v("oNote")) L.push("","*Message:* "+v("oNote"));
+  L.push("","Please confirm my order and the delivery fee.");
+  window.open(wa(L.join("\n")), "_blank");
+  cart = []; save("atb_cart",cart); updateBadges(); closeAll(); toast("Your order has opened in WhatsApp. Press send there.");
+};
+
+/* ---------- contact ---------- */
+const pretty = "+" + WHATSAPP.replace(/^(\d{3})(\d{3})(\d{3})(\d{4})$/, "$1 $2 $3 $4");
+const hello = wa("Good day. I have a question about " + BRAND + " footwear.");
+$("floatLink").href = hello;
+$("topTel").textContent = pretty; $("topTel").href = hello; $("topTel").target = "_blank";
+$("telLink").textContent = pretty; $("telLink").href = hello; $("telLink").target = "_blank";
+$("mailLink").textContent = EMAIL; $("mailLink").href = "mailto:" + EMAIL;
+$("contactForm").onsubmit = e => {
+  e.preventDefault();
+  const n=$("cName").value.trim(), m=$("cMsg").value.trim();
+  if (!n){ $("cErr").textContent="Please enter your name."; $("cName").focus(); return; }
+  if (!m){ $("cErr").textContent="Please write your message."; $("cMsg").focus(); return; }
+  $("cErr").textContent=""; window.open(wa("Good day, my name is "+n+".\n\n"+m), "_blank");
+};
+
+renderPills(); render(); updateBadges(); show();
+</script>
+</body>
+</html>
