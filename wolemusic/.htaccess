@@ -1,0 +1,7 @@
+# Block the settings/helper files, the setup notes and the orders folder.
+# Only init.php, verify.php and webhook.php are called from the web.
+<FilesMatch "^(config|config\.sample|lib)\.php$|\.md$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/orders(/|$)
+Options -Indexes
