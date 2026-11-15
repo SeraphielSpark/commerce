@@ -6,9 +6,9 @@
                        true  → checkout takes payment with Paystack (needs the PHP server + key). */
 window.CATALOG = {
   "payments_enabled": false,
-  "whatsapp": "2340000000000",
+  "whatsapp": "2348023556976",
   "shop": {
-    "phone": "0800 000 0000",
+    "phone": "0802 355 6976",
     "email": "orders@wolemusic.com",
     "address": "Shop address, OAU Campus, Ile-Ife, Osun State",
     "hours": "Monday – Saturday, 9:00am – 6:00pm",
